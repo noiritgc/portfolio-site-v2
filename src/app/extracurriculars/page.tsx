@@ -57,7 +57,9 @@ export default function Extracurriculars() {
 
             <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm">
               <h2 className="text-2xl font-semibold mb-4">Educational Content Creator</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Trigsaw YouTube Channel • 2024 - Present</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <a href="https://www.youtube.com/@Trigsaw" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Trigsaw YouTube Channel</a> • 2024 - Present
+              </p>
               <div className="prose dark:prose-invert max-w-none">
                 <p>Creator and host of the Trigsaw YouTube channel, producing educational content focused on Physics and Calculus concepts.</p>
                 <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
