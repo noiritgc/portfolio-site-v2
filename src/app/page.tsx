@@ -1,16 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
-  };
-
   const skills = [
     { name: 'JavaScript/TypeScript', level: 'Advanced' },
     {name: 'Java', level: 'Advanced'},
@@ -140,7 +134,7 @@ export default function Home() {
                 I am a passionate software developer with a strong foundation in web and mobile development and a keen interest in creating efficient, scalable solutions. With experience in both frontend and backend technologies, I strive to build applications that make a positive impact.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                When I'm not coding, you can find me playing the clarinet. I believe in continuous learning and staying up-to-date with the latest technologies and best practices in software development.
+                When I&apos;m not coding, you can find me playing the clarinet. I believe in continuous learning and staying up-to-date with the latest technologies and best practices in software development.
               </p>
             </div>
           </motion.div>
@@ -291,7 +285,7 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
             <div className="flex justify-center gap-6">
               <a

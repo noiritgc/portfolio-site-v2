@@ -31,7 +31,7 @@ export default function Extracurriculars() {
               <h2 className="text-2xl font-semibold mb-4">Robotics Club</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Member & Programmer • 2022 - Present</p>
               <div className="prose dark:prose-invert max-w-none">
-                <p>Active member of the school's Robotics Club, contributing to robot programming and competitions.</p>
+                <p>Active member of the school&apos;s Robotics Club, contributing to robot programming and competitions.</p>
                 <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
                   <li>Developed and implemented subsytems with Gyroscopes and Super-Sonic Sensors</li>
                   <li>Collaborated with team members to design and optimize robot functionality</li>
