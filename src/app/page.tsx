@@ -34,10 +34,10 @@ export default function Home() {
       image: '/project-icons/musical-fingering.svg'
     },
     {
-      title: 'Media Site Platform',
-      description: '🚧 In Progress: Building a Flask-based website for sentiment analysis of media sources. Currently setting up the backend infrastructure and database models.',
-      technologies: ['Python', 'Flask', 'HTML/CSS'],
-      link: '#',
+      title: 'Buzzlytix',
+      description: 'A platform for users to access centralized media trends through AI-powered media and sentiment analysis.',
+      technologies: ['Python', 'Flask', 'HTML/CSS', 'AI', 'Sentiment Analysis'],
+      link: 'https://buzzlytix.com',
       image: '/project-icons/media-site.svg'
     },
     {
@@ -261,7 +261,7 @@ export default function Home() {
                       ))}
                     </div>
                     <button
-                      onClick={() => alert('This project is currently under development. Check back soon!')}
+                      onClick={() => window.open(project.link, '_blank', 'noopener,noreferrer')}
                       className="text-gray-900 dark:text-white hover:underline cursor-pointer"
                     >
                       View Project →
