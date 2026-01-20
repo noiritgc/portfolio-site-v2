@@ -21,16 +21,16 @@ export default function Home() {
   const projects = [
     {
       title: 'Just Intonation Mobile App',
-      description: '🚧 In Progress: Developing a mobile application for a client focused on Just Intonation music theory and practice. Currently implementing core features and UI components.',
+      description: '🚧 In Progress: Developing a mobile application for a client focused on Just Intonation music theory and practice. App will be released soon, click to watch demo video!',
       technologies: ['React Native', 'JavaScript', 'Expo'],
-      link: '#',
+      link: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
       image: '/project-icons/just-intonation.svg'
     },
     {
       title: 'Musical Fingering Apps',
       description: 'Creating a mobile application for musical instrument fingering charts and practice tools. App will be released soon, click to watch demo video!',
       technologies: ['React Native', 'TypeScript', 'Expo'],
-      link: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
+      link: '#',
       image: '/project-icons/musical-fingering.svg'
     },
     {
