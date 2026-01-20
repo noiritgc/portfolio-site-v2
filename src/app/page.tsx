@@ -14,7 +14,7 @@ export default function Home() {
     { name: 'Git', level: 'Advanced' },
     { name: 'Mobile Development', level: 'Advanced'},
     {name: 'Web Development', level: 'Advanced'},
-    {name: 'Calculus', level: 'Intermediate'}
+    {name: 'Calculus', level: 'Advanced'}
 
   ];
 
@@ -28,9 +28,9 @@ export default function Home() {
     },
     {
       title: 'Musical Fingering Apps',
-      description: '🚧 In Progress: Creating a mobile application for musical instrument fingering charts and practice tools. Currently in the initial development phase.',
+      description: 'Creating a mobile application for musical instrument fingering charts and practice tools. App will be released soon, click to watch demo video!',
       technologies: ['React Native', 'TypeScript', 'Expo'],
-      link: '#',
+      link: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
       image: '/project-icons/musical-fingering.svg'
     },
     {
@@ -40,13 +40,6 @@ export default function Home() {
       link: 'https://buzzlytix.com',
       image: '/project-icons/media-site.svg'
     },
-    {
-      title: 'Dublin Food Pantry Database',
-      description: '🚧 In Progress: Developing a comprehensive database system to improve operations and service delivery for the Dublin Food Pantry. Currently in the design and planning phase.',
-      technologies: ['Database Design'],
-      link: '#',
-      image: '/project-icons/food-pantry.svg'
-    }
   ];
 
   const experiences = [

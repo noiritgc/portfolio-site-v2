@@ -14,18 +14,6 @@ export default function Extracurriculars() {
           <h1 className="text-4xl font-bold mb-12 text-center">Extracurricular Activities</h1>
           
           <div className="space-y-12">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm">
-              <h2 className="text-2xl font-semibold mb-4">Computer Science Club</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">Co-Founder & Vice President • 2025 - Present</p>
-              <div className="prose dark:prose-invert max-w-none">
-                <p>Co-founded and currently serve as Vice President of a district-wide Computer Science Club for high school students, focusing on real-world impact through technology.</p>
-                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>Lead collaborative projects with local non-profit organizations to address community needs</li>
-                  <li>Currently developing a database system for the Dublin Food Pantry to improve their operations and service delivery</li>
-                  <li>Facilitate knowledge sharing and skill development among high school students across the district</li>
-                </ul>
-              </div>
-            </div>
 
             <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm">
               <h2 className="text-2xl font-semibold mb-4">Robotics Club</h2>
