@@ -1,0 +1,17 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="36" fill="#F8F5EF"/>
+  <rect x="80" y="80" width="1040" height="640" rx="28" fill="white" stroke="#D1D5DB" stroke-width="4"/>
+  <rect x="130" y="140" width="320" height="200" rx="20" fill="#E5E7EB"/>
+  <rect x="500" y="140" width="220" height="32" rx="16" fill="#111827"/>
+  <rect x="500" y="190" width="300" height="20" rx="10" fill="#9CA3AF"/>
+  <rect x="500" y="228" width="260" height="20" rx="10" fill="#D1D5DB"/>
+  <rect x="130" y="380" width="680" height="220" rx="24" fill="#F3F4F6"/>
+  <rect x="170" y="430" width="260" height="18" rx="9" fill="#111827"/>
+  <rect x="170" y="468" width="480" height="16" rx="8" fill="#9CA3AF"/>
+  <rect x="170" y="498" width="420" height="16" rx="8" fill="#D1D5DB"/>
+  <rect x="170" y="548" width="180" height="24" rx="12" fill="#111827"/>
+  <circle cx="950" cy="560" r="92" fill="#FDE68A"/>
+  <path d="M942 500C968 500 988 520 988 546V592H896V546C896 520 916 500 942 500Z" fill="#111827"/>
+  <path d="M924 568C924 548 940 532 960 532C980 532 996 548 996 568V600H924V568Z" fill="#111827"/>
+  <text x="600" y="726" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="32">Product preview placeholder</text>
+</svg>
