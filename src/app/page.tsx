@@ -8,19 +8,29 @@ const projects = [
   {
     title: 'Just Intonation Mobile App',
     description:
-      'A polished mobile experience for music theory practice that translates complex harmonic ideas into a calm, approachable learning flow. The product is being shaped around clarity, gesture-driven interaction, and a strong visual language for a client-facing experience.',
+      'A polished mobile app for practicing music theory and Just Intonation / Beat-Less Tuning, available now on the iOS App Store. Students can tune chords and intervals or freely experiment within a Just Intonation temperament, while a built-in testing mode makes the app equally useful as a classroom teaching tool for tracking and sharing results.',
     technologies: ['React Native', 'JavaScript', 'Expo', 'UI Design'],
     link: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
-    image: '/project-icons/product-placeholder.svg',
-    status: 'In progress',
+    images: [
+      '/project-icons/3.png',
+      '/project-icons/4.png',
+      '/project-icons/6.png',
+      '/project-icons/8.png',
+    ],
+    status: 'Live',
   },
   {
     title: 'Buzzlytix',
     description:
-      'A media intelligence platform designed to make trend analysis feel intuitive rather than overwhelming. I focused on turning dense data into a storytelling experience with thoughtful layouts, clear summaries, and a product feel that supports fast decision-making.',
+      'A media intelligence platform that distills current events and trends into a concise, consolidated feed. Users can track trending "Buzzwords" across the media landscape, explore the topics being widely discussed worldwide, and follow the trends that emerge around them.',
     technologies: ['Python', 'Flask', 'HTML/CSS', 'AI', 'Product Thinking'],
     link: 'https://buzzlytix.com',
-    image: '/project-icons/product-placeholder.svg',
+    images: [
+      '/project-icons/buzz-1.png',
+      '/project-icons/buzz-2.png',
+      '/project-icons/buzz-3.png',
+      '/project-icons/buzz-4.png',
+    ],
     status: 'Live',
   },
 ];
@@ -99,7 +109,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="flex flex-col gap-8">
             {projects.map((project, index) => (
               <motion.article
                 key={project.title}
@@ -107,16 +117,25 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-black/10 bg-white/85 shadow-[0_25px_80px_-35px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-gray-900/85"
+                className="flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-black/10 bg-white/85 shadow-[0_25px_80px_-35px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-gray-900/85"
               >
-                <div className="overflow-hidden bg-gray-100 dark:bg-gray-800/80">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={1200}
-                    height={720}
-                    className="h-72 w-full object-cover sm:h-80"
-                  />
+                <div className="bg-gray-100 p-3 dark:bg-gray-800/80 sm:p-4">
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {project.images.map((image, imageIndex) => (
+                      <div
+                        key={`${project.title}-${imageIndex}`}
+                        className="flex items-center justify-center overflow-hidden rounded-[1.5rem] border border-black/5 bg-white p-3 dark:border-white/10"
+                      >
+                        <Image
+                          src={image}
+                          alt={`${project.title} screenshot ${imageIndex + 1}`}
+                          width={886}
+                          height={1920}
+                          className="mx-auto h-auto max-h-[280px] w-auto max-w-full object-contain sm:max-h-[320px]"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="flex flex-1 flex-col p-7 sm:p-8">
