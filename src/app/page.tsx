@@ -6,11 +6,18 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'Just Intonation Mobile App',
+    title: 'Beat-Less Tuning Mobile App',
     description:
       'A polished mobile app for practicing music theory and Just Intonation / Beat-Less Tuning, available now on the iOS App Store. Students can tune chords and intervals or freely experiment within a Just Intonation temperament, while a built-in testing mode makes the app equally useful as a classroom teaching tool for tracking and sharing results.',
     technologies: ['React Native', 'JavaScript', 'Expo', 'UI Design'],
-    link: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
+    link: {
+      label: 'Demo Video',
+      href: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
+    },
+    secondaryLink: {
+      label: 'View project',
+      href: 'https://apps.apple.com/us/app/beat-less-tuning/id6758780458',
+    },
     images: [
       '/project-icons/3.png',
       '/project-icons/4.png',
@@ -24,7 +31,10 @@ const projects = [
     description:
       'A media intelligence platform that distills current events and trends into a concise, consolidated feed. Users can track trending "Buzzwords" across the media landscape, explore the topics being widely discussed worldwide, and follow the trends that emerge around them.',
     technologies: ['Python', 'Flask', 'HTML/CSS', 'AI', 'Product Thinking'],
-    link: 'https://buzzlytix.com',
+    link: {
+      label: 'View project',
+      href: 'https://buzzlytix.com',
+    },
     images: [
       '/project-icons/buzz-1.png',
       '/project-icons/buzz-2.png',
@@ -159,14 +169,26 @@ export default function Home() {
                   </div>
 
                   {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-6 inline-flex items-center text-sm font-semibold text-gray-900 transition hover:translate-x-1 dark:text-white"
-                    >
-                      View project →
-                    </a>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a
+                        href={project.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-sm font-semibold text-gray-900 transition hover:translate-x-1 dark:text-white"
+                      >
+                        {project.link.label} →
+                      </a>
+                      {project.secondaryLink ? (
+                        <a
+                          href={project.secondaryLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center rounded-full border border-gray-300 px-3 py-1.5 text-sm font-semibold text-gray-700 transition hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:text-gray-300 dark:hover:border-white dark:hover:text-white"
+                        >
+                          {project.secondaryLink.label}
+                        </a>
+                      ) : null}
+                    </div>
                   ) : (
                     <span className="mt-6 text-sm font-medium text-gray-500 dark:text-gray-400">More details coming soon</span>
                   )}
