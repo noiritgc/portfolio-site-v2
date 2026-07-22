@@ -11,12 +11,12 @@ const projects = [
       'A polished mobile app for practicing music theory and Just Intonation / Beat-Less Tuning, available now on the iOS App Store. Students can tune chords and intervals or freely experiment within a Just Intonation temperament, while a built-in testing mode makes the app equally useful as a classroom teaching tool for tracking and sharing results.',
     technologies: ['React Native', 'JavaScript', 'Expo', 'UI Design'],
     link: {
-      label: 'Demo Video',
-      href: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
+      label: 'View Project',
+      href: 'https://apps.apple.com/us/app/beat-less-tuning/id6758780458',
     },
     secondaryLink: {
-      label: 'View project',
-      href: 'https://apps.apple.com/us/app/beat-less-tuning/id6758780458',
+      label: 'Demo video',
+      href: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
     },
     images: [
       '/project-icons/3.png',
