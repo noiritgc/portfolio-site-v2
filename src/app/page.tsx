@@ -1,203 +1,220 @@
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useRef, useState, type ComponentType } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import {
+  ArrowOut, CatchDrawing, ClarinetDrawing, DeskDrawing, FootballDrawing, GitHubMark, FishingDrawing, LinkedInMark, Mail, NewsDrawing,
+  Portrait, RoughBox, Scribble, TuningDrawing,
+} from '@/components/Doodles';
 
-const projects = [
+type Project = {
+  title: string;
+  summary: string;
+  tech: string[];
+  tint: string;
+  Drawing: ComponentType<{ className?: string }>;
+  video?: string;
+  more: string[];
+  link: { label: string; href: string };
+};
+
+const projects: Project[] = [
   {
-    title: 'Beat-Less Tuning Mobile App',
-    description:
-      'A polished mobile app for practicing music theory and Just Intonation / Beat-Less Tuning, available now on the iOS App Store. Students can tune chords and intervals or freely experiment within a Just Intonation temperament, while a built-in testing mode makes the app equally useful as a classroom teaching tool for tracking and sharing results.',
-    technologies: ['React Native', 'JavaScript', 'Expo', 'UI Design'],
-    link: {
-      label: 'View Project',
-      href: 'https://apps.apple.com/us/app/beat-less-tuning/id6758780458',
-    },
-    secondaryLink: {
-      label: 'Demo video',
-      href: 'https://youtu.be/El4SwqdXyRs?si=luYzWUifW8VIAXxR',
-    },
-    images: [
-      '/project-icons/3.png',
-      '/project-icons/4.png',
-      '/project-icons/6.png',
-      '/project-icons/8.png',
+    title: 'Steady Hands',
+    summary: 'A magnet-tracked pen becomes a virtual surgical tool, so your desk is the training room. Built at Cal Hacks 13.0.',
+    tech: ['hardware', 'game', 'AI'],
+    tint: 'tint-red',
+    Drawing: DeskDrawing,
+    video: 'aH168-oegaQ',
+    more: [
+      'The pen: a magnet inside a pen and five sensors under the board. Move your hand and the instrument follows.',
+      'The practice: make careful cuts, control depth, and work through simulated procedures on your desk.',
+      'The coach: Riley gives live callouts. After each run, a coach reviews your movement and suggests what to practice next.',
     ],
-    status: 'Live',
+    link: { label: 'Watch on YouTube', href: 'https://www.youtube.com/watch?v=aH168-oegaQ' },
+  },
+  {
+    title: 'Beat-Less Tuning',
+    summary: 'An iOS app that trains musicians to hear pitch accurately using just intonation. 400+ copies sold.',
+    tech: ['React Native', 'Expo', 'JavaScript'],
+    tint: 'tint-yellow',
+    Drawing: TuningDrawing,
+    video: 'El4SwqdXyRs',
+    more: [
+      'Custom audio playback with real-time pitch control, looping, and pitch-shifted drones.',
+      'A circular cent-based tuning interface, chord generation, and several ear-training practice modes.',
+      'Published on the App Store, with 400+ copies sold and $2,000+ in revenue.',
+    ],
+    link: { label: 'Get it on the App Store', href: 'https://apps.apple.com/us/app/beat-less-tuning/id6758780458' },
   },
   {
     title: 'Buzzlytix',
-    description:
-      'A media intelligence platform that distills current events and trends into a concise, consolidated feed. Users can track trending "Buzzwords" across the media landscape, explore the topics being widely discussed worldwide, and follow the trends that emerge around them.',
-    technologies: ['Python', 'Flask', 'HTML/CSS', 'AI', 'Product Thinking'],
-    link: {
-      label: 'View project',
-      href: 'https://buzzlytix.com',
-    },
-    images: [
-      '/project-icons/buzz-1.png',
-      '/project-icons/buzz-2.png',
-      '/project-icons/buzz-3.png',
-      '/project-icons/buzz-4.png',
+    summary: 'Reads 165 news feeds, groups the stories into topics, and compares how outlets cover them.',
+    tech: ['Python', 'Next.js', 'OpenAI API', 'Cloud Run'],
+    tint: 'tint-blue',
+    Drawing: NewsDrawing,
+    more: [
+      'A concurrent Python pipeline scrapes and cleans 165 RSS feeds across 71 news sources.',
+      'AI clusters the news into up to 15 ranked topics per run, with source-cited summaries.',
+      'Side-by-side comparisons show how different publishers frame the same story.',
     ],
-    status: 'Live',
+    link: { label: 'Visit buzzlytix.com', href: 'https://buzzlytix.com' },
   },
 ];
 
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.9),_transparent_45%),linear-gradient(135deg,_#f8f5ef_0%,_#f3efe9_100%)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.08),_transparent_45%),linear-gradient(135deg,_#0f172a_0%,_#111827_100%)]">
-      <section className="px-4 pb-16 pt-24 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-gray-500 dark:text-gray-400">
-                Software • Music • Product
-              </p>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-                I build thoughtful digital experiences that feel simple and memorable.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                I&apos;m a developer focused on mobile apps, creative tools, and modern web products that connect strong design with practical execution.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/resume"
-                  className="rounded-full bg-gray-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-                >
-                  View Resume
-                </Link>
-                <a
-                  href="https://github.com/noiritgc?tab=overview&from=2025-06-01&to=2025-06-08"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-gray-300 px-5 py-3 text-sm font-medium text-gray-700 transition hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:border-white dark:hover:text-white"
-                >
-                  GitHub
-                </a>
-              </div>
-            </motion.div>
+const stack = ['Python', 'TypeScript', 'JavaScript', 'Java', 'SQL', 'React', 'Next.js', 'React Native', 'FastAPI', 'NumPy', 'Docker', 'Cloud Run', 'Firebase', 'Git'];
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-[0_25px_80px_-35px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-gray-900/70"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
-                Current focus
-              </p>
-              <ul className="mt-6 space-y-4 text-sm text-gray-600 dark:text-gray-300">
-                <li className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4 dark:border-gray-800 dark:bg-gray-800/70">
-                  <span className="font-semibold text-gray-900 dark:text-white">React Native</span> for expressive, user-friendly mobile products.
-                </li>
-                <li className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4 dark:border-gray-800 dark:bg-gray-800/70">
-                  <span className="font-semibold text-gray-900 dark:text-white">Next.js</span> for fast, polished web experiences.
-                </li>
-                <li className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4 dark:border-gray-800 dark:bg-gray-800/70">
-                  <span className="font-semibold text-gray-900 dark:text-white">Music + tech</span> projects that blend creativity with engineering.
-                </li>
-              </ul>
-            </motion.div>
+export default function Home() {
+  const [open, setOpen] = useState<Project | null>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (open) dialog.current?.showModal();
+  }, [open]);
+
+  return (
+    <>
+      <section className="hero">
+        <div>
+          <h1 className="crayon">Hi, I’m Noirit</h1>
+          <p className="tagline crayon-fine">Computer science at UC Berkeley. I build apps, tools, and games.</p>
+          <div className="buttons">
+            <a href="#projects" className="btn btn-fill"><Scribble className="crayon" /><span className="crayon-fine">See my projects</span></a>
+            <Link href="/resume" className="btn"><span className="crayon"><RoughBox /></span><span className="crayon-fine">Read my resume</span></Link>
           </div>
+          <div className="find-me crayon-fine">
+            <span>Find me:</span>
+            <a href="mailto:noiritgc@gmail.com" aria-label="Email"><Mail /></a>
+            <a href="https://github.com/noiritgc" aria-label="GitHub"><GitHubMark /></a>
+            <a href="https://www.linkedin.com/in/noiritgc" aria-label="LinkedIn"><LinkedInMark /></a>
+          </div>
+        </div>
+        <Portrait className="crayon hero-portrait" />
+      </section>
+
+      <section id="projects" className="section">
+        <h2 className="crayon">Things I’ve built</h2>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article key={project.title} className="project-card" onClick={() => setOpen(project)}>
+              <span className="crayon"><RoughBox /></span>
+              <div className={`project-art ${project.tint}`}>
+                <Scribble className="crayon" />
+                <project.Drawing className="crayon" />
+              </div>
+              <div className="project-text crayon-fine">
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                <p className="tech">{project.tech.join(' | ')}</p>
+                <button type="button" className="more">Click for more</button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="github-note">
+          <span className="crayon"><RoughBox /></span>
+          <div className="crayon-fine">
+            <h3>The rest are on GitHub</h3>
+            <p>Including a geo-feature sharing platform and an audio synthesis toolset.</p>
+          </div>
+          <a href="https://github.com/noiritgc" className="btn btn-fill"><Scribble className="crayon" /><span className="crayon-fine">See my GitHub</span></a>
         </div>
       </section>
 
-      <section className="px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
-                Selected work
-              </p>
-              <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Projects</h2>
+      <section id="about" className="section about">
+        <div>
+          <h2 className="crayon">About me</h2>
+          <div className="crayon-fine">
+            <p>I’m a freshman studying computer science at UC Berkeley, class of 2029.</p>
+            <p>Outside of school, I play the clarinet, follow the Bengals, and go fishing.</p>
+            <h3>What I work with</h3>
+          </div>
+          <div className="stack">
+            <Scribble className="crayon" />
+            <p className="crayon-fine">{stack.join(' | ')}</p>
+          </div>
+        </div>
+        <figure>
+          <FishingDrawing className="crayon" />
+        </figure>
+      </section>
+
+      <section id="outside" className="section">
+        <h2 className="crayon">Outside of class</h2>
+        <div className="outside-grid">
+          <div className="outside-card">
+            <span className="crayon"><RoughBox /></span>
+            <ClarinetDrawing className="crayon" />
+            <div className="crayon-fine">
+              <h3>Music</h3>
+              <p>I play the clarinet! My current model is a Backun Beta wooden clarinet, a step-up from my previous Yamaha plastic model. I've been playing for 6 years, and I still make time to noodle around every now and then.</p>
             </div>
           </div>
-
-          <div className="flex flex-col gap-8">
-            {projects.map((project, index) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-black/10 bg-white/85 shadow-[0_25px_80px_-35px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-gray-900/85"
-              >
-                <div className="bg-gray-100 p-3 dark:bg-gray-800/80 sm:p-4">
-                  <div className="grid gap-3 md:grid-cols-2">
-                    {project.images.map((image, imageIndex) => (
-                      <div
-                        key={`${project.title}-${imageIndex}`}
-                        className="flex items-center justify-center overflow-hidden rounded-[1.5rem] border border-black/5 bg-white p-3 dark:border-white/10"
-                      >
-                        <Image
-                          src={image}
-                          alt={`${project.title} screenshot ${imageIndex + 1}`}
-                          width={886}
-                          height={1920}
-                          className="mx-auto h-auto max-h-[280px] w-auto max-w-full object-contain sm:max-h-[320px]"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-1 flex-col p-7 sm:p-8">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-gray-600 dark:bg-gray-800 dark:text-gray-300">
-                      {project.status}
-                    </span>
-                  </div>
-
-                  <div className="mt-6 flex-1">
-                    <h3 className="text-2xl font-semibold">{project.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">{project.description}</p>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="rounded-full border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600 dark:border-gray-700 dark:text-gray-300">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.link ? (
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      <a
-                        href={project.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm font-semibold text-gray-900 transition hover:translate-x-1 dark:text-white"
-                      >
-                        {project.link.label} →
-                      </a>
-                      {project.secondaryLink ? (
-                        <a
-                          href={project.secondaryLink.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center rounded-full border border-gray-300 px-3 py-1.5 text-sm font-semibold text-gray-700 transition hover:border-gray-900 hover:text-gray-900 dark:border-gray-700 dark:text-gray-300 dark:hover:border-white dark:hover:text-white"
-                        >
-                          {project.secondaryLink.label}
-                        </a>
-                      ) : null}
-                    </div>
-                  ) : (
-                    <span className="mt-6 text-sm font-medium text-gray-500 dark:text-gray-400">More details coming soon</span>
-                  )}
-                </div>
-              </motion.article>
-            ))}
+          <div className="outside-card">
+            <span className="crayon"><RoughBox /></span>
+            <FootballDrawing className="crayon" />
+            <div className="crayon-fine">
+              <h3>Football</h3>
+              <p>I’m a huge Cincinnati Bengals fan and try to catch every game I can. I’ve been to two NFL games in person Bengals vs. Ravens at home in 2023 and Niners vs. Cardinals at Levi Stadium in 2026.</p>
+            </div>
+          </div>
+          <div className="outside-card">
+            <span className="crayon"><RoughBox /></span>
+            <CatchDrawing className="crayon" />
+            <div className="crayon-fine">
+              <h3>Fishing</h3>
+              <p>Fishing is one of my favorite ways to pass time. I mainly fish in rivers, lakes, and ponds where I catch sunfish, bass, trout, and catfish. I'm trying to get more into salt-water fishing.</p>
+            </div>
           </div>
         </div>
       </section>
-    </div>
+
+      <footer id="contact" className="site-footer">
+        <Scribble className="crayon" />
+        <div className="site-footer-inner crayon-fine">
+          <div>
+            <h2>Want to build something?</h2>
+            <p>Noirit Ghosh Choudhuri | Computer science at UC Berkeley</p>
+          </div>
+          <nav>
+            <a href="mailto:noiritgc@gmail.com">Email</a>
+            <a href="https://github.com/noiritgc">GitHub</a>
+            <a href="https://www.linkedin.com/in/noiritgc">LinkedIn</a>
+          </nav>
+        </div>
+      </footer>
+
+      {open && (
+        <dialog
+          ref={dialog}
+          className="project-dialog"
+          onClose={() => setOpen(null)}
+          onClick={(event) => {
+            if (event.target === dialog.current) dialog.current?.close();
+          }}
+        >
+          <div className="dialog-body">
+            <button type="button" className="dialog-close crayon-fine" onClick={() => dialog.current?.close()}>Close</button>
+            <h2 className="crayon">{open.title}</h2>
+            {open.video && (
+              <div className="video-frame">
+                <div className="crayon frame-lines"><RoughBox /></div>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${open.video}`}
+                  title={`${open.title} demo`}
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            )}
+            <div className="crayon-fine">
+              <ul>{open.more.map((point) => <li key={point}>{point}</li>)}</ul>
+              <a href={open.link.href} target="_blank" rel="noreferrer" className="watch">{open.link.label} <ArrowOut className="icon" /></a>
+            </div>
+          </div>
+        </dialog>
+      )}
+    </>
   );
 }
