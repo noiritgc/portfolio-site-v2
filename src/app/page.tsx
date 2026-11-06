@@ -148,7 +148,7 @@ export default function Home() {
             <ClarinetDrawing className="crayon" />
             <div className="crayon-fine">
               <h3>Music</h3>
-              <p>I play the clarinet! My current model is a Backun Beta wooden clarinet, a step-up from my previous Yamaha plastic model. I've been playing for 6 years, and I still make time to noodle around every now and then.</p>
+              <p>I play the clarinet! My current model is a Backun Beta wooden clarinet, a step-up from my previous Yamaha plastic model. I’ve been playing for 6 years, and I still make time to noodle around every now and then.</p>
             </div>
           </div>
           <div className="outside-card">
@@ -164,7 +164,7 @@ export default function Home() {
             <CatchDrawing className="crayon" />
             <div className="crayon-fine">
               <h3>Fishing</h3>
-              <p>Fishing is one of my favorite ways to pass time. I mainly fish in rivers, lakes, and ponds where I catch sunfish, bass, trout, and catfish. I'm trying to get more into salt-water fishing.</p>
+              <p>Fishing is one of my favorite ways to pass time. I mainly fish in rivers, lakes, and ponds where I catch sunfish, bass, trout, and catfish. I’m trying to get more into salt-water fishing.</p>
             </div>
           </div>
         </div>
